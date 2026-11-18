@@ -1,0 +1,281 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#030705" />
+  <meta name="description" content="Aurora Noël — 由手势控制的 3D 粒子圣诞树，哑光松绿、金属金与圣诞红交织的光影雕塑。" />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <title>Aurora Noël · 手势粒子圣诞树</title>
+  <script type="module" crossorigin src="/assets/index-CloLnlLs.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/index-CH4esWds.css">
+</head>
+<body>
+  <svg class="svg-defs" aria-hidden="true">
+    <defs>
+      <symbol id="i-star" viewBox="0 0 24 24">
+        <path d="M12 2.6c.5 4.6 2.1 6.2 6.7 6.7-4.6.5-6.2 2.1-6.7 6.7-.5-4.6-2.1-6.2-6.7-6.7 4.6-.5 6.2-2.1 6.7-6.7Z"/>
+      </symbol>
+      <symbol id="i-hand-open" viewBox="0 0 32 32">
+        <path d="M10.7 17.5v-7.2a1.45 1.45 0 0 1 2.9 0v5.2"/>
+        <path d="M13.6 15.5V7.7a1.45 1.45 0 0 1 2.9 0v7.5"/>
+        <path d="M16.5 15.2V8.7a1.45 1.45 0 0 1 2.9 0v7.5"/>
+        <path d="M19.4 16v-5.3a1.45 1.45 0 0 1 2.9 0v8.1c0 5.2-3.1 8.5-7.6 8.5-3.1 0-5.2-1.5-6.7-4.2L5.5 19a1.62 1.62 0 0 1 2.8-1.6l2.4 3.6"/>
+      </symbol>
+      <symbol id="i-hand-fist" viewBox="0 0 32 32">
+        <path d="M8.8 17v-2.9a2.05 2.05 0 0 1 4.1 0v-1.4a2.05 2.05 0 0 1 4.1 0v1.3a2.05 2.05 0 0 1 4.1 0v6.1c0 4.7-2.8 7.6-7.1 7.6-3.4 0-5.4-1.6-6.9-4.3l-2.4-4.3a1.62 1.62 0 0 1 2.8-1.6L8.8 20"/>
+        <path d="M12.9 14.1v2.6M17 14.3v2.5M21.1 15.1v2.3"/>
+      </symbol>
+      <symbol id="i-hand-move" viewBox="0 0 32 32">
+        <path d="M16 4.8v22.4M4.8 16h22.4"/>
+        <path d="m13.2 7.6 2.8-2.8 2.8 2.8M13.2 24.4l2.8 2.8 2.8-2.8M7.6 13.2 4.8 16l2.8 2.8M24.4 13.2l2.8 2.8-2.8 2.8"/>
+        <circle cx="16" cy="16" r="3.3"/>
+      </symbol>
+      <symbol id="i-tree" viewBox="0 0 24 24">
+        <path d="M12 2.8 6.8 10h2.5L5.6 15.2h3.2L12 21.2l3.2-6h3.2L14.7 10h2.5L12 2.8Z"/>
+      </symbol>
+      <symbol id="i-sparkles" viewBox="0 0 24 24">
+        <path d="M12 3.2c.45 4 1.8 5.35 5.8 5.8-4 .45-5.35 1.8-5.8 5.8-.45-4-1.8-5.35-5.8-5.8 4-.45 5.35-1.8 5.8-5.8Z"/>
+        <path d="M18.6 14.4c.25 2.2 1 2.95 3.2 3.2-2.2.25-2.95 1-3.2 3.2-.25-2.2-1-2.95-3.2-3.2 2.2-.25 2.95-1 3.2-3.2ZM5.4 14.9c.17 1.5.68 2 2.2 2.2-1.52.2-2.03.7-2.2 2.2-.17-1.5-.68-2-2.2-2.2 1.52-.2 2.03-.7 2.2-2.2Z"/>
+      </symbol>
+      <symbol id="i-orbit" viewBox="0 0 24 24">
+        <ellipse cx="12" cy="12" rx="8.5" ry="3.9" transform="rotate(-28 12 12)"/>
+        <circle cx="12" cy="12" r="2.2"/>
+        <circle cx="19" cy="7.6" r="1.3" fill="currentColor" stroke="none"/>
+      </symbol>
+      <symbol id="i-camera" viewBox="0 0 24 24">
+        <rect x="3" y="6.8" width="13" height="11" rx="2.2"/>
+        <path d="m16 10.2 5-2.7v9.2l-5-2.8"/>
+        <circle cx="9.5" cy="12.3" r="2.2"/>
+      </symbol>
+      <symbol id="i-photo" viewBox="0 0 24 24">
+        <rect x="3" y="4.5" width="18" height="15" rx="2"/>
+        <circle cx="8.7" cy="9.4" r="1.6"/>
+        <path d="m4.5 17.3 4.7-4.7 3.1 3.1 2.5-2.5 4.7 4.7"/>
+      </symbol>
+      <symbol id="i-reset" viewBox="0 0 24 24">
+        <path d="M4.8 9.3A7.8 7.8 0 1 1 5.1 15"/>
+        <path d="M4.5 4.8v4.7h4.7"/>
+        <circle cx="12" cy="12" r="2.1"/>
+      </symbol>
+      <symbol id="i-expand" viewBox="0 0 24 24">
+        <path d="M8.5 3.7H3.7v4.8M15.5 3.7h4.8v4.8M20.3 15.5v4.8h-4.8M3.7 15.5v4.8h4.8"/>
+      </symbol>
+      <symbol id="i-chevron" viewBox="0 0 24 24">
+        <path d="m8.5 14.5 3.5-3.5 3.5 3.5"/>
+      </symbol>
+      <symbol id="i-lock" viewBox="0 0 24 24">
+        <rect x="5" y="10.5" width="14" height="9.5" rx="2"/>
+        <path d="M8 10.5V8a4 4 0 0 1 8 0v2.5"/>
+      </symbol>
+      <symbol id="i-arrow" viewBox="0 0 24 24">
+        <path d="M5 12h14M13 6l6 6-6 6"/>
+      </symbol>
+    </defs>
+  </svg>
+
+  <div id="app" class="app is-loading">
+    <div class="world-shell">
+      <canvas id="world" aria-label="可交互的 3D 粒子圣诞树"></canvas>
+      <div class="world-haze" aria-hidden="true"></div>
+      <div class="world-vignette" aria-hidden="true"></div>
+      <div class="world-grain" aria-hidden="true"></div>
+      <div class="edge-frame" aria-hidden="true">
+        <span class="edge-frame__tl"></span><span class="edge-frame__tr"></span>
+        <span class="edge-frame__bl"></span><span class="edge-frame__br"></span>
+      </div>
+    </div>
+
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="Aurora Noël 首页">
+        <span class="brand__mark"><svg><use href="#i-star"></use></svg></span>
+        <span class="brand__wordmark">
+          <span class="brand__eyebrow">ATELIER OF LIGHT · MMXXV</span>
+          <span class="brand__name">AURORA <i>NOËL</i></span>
+          <span class="brand__cn">极光圣诞 · 手势粒子雕塑</span>
+        </span>
+      </a>
+
+      <div class="topbar__right">
+        <div class="live-chip" title="实时渲染状态">
+          <span class="live-chip__dot"></span>
+          <span>REALTIME</span>
+          <span class="live-chip__sep"></span>
+          <span id="fpsLabel">60 FPS</span>
+        </div>
+        <button class="icon-button" id="fullscreenBtn" type="button" aria-label="切换全屏" title="全屏">
+          <svg><use href="#i-expand"></use></svg>
+        </button>
+      </div>
+    </header>
+
+    <section class="scene-readout" aria-live="polite">
+      <div class="scene-readout__rule">
+        <span>SCENE <b id="sceneNumber">01</b></span>
+        <span class="line"></span>
+        <span id="sceneModeEn">ASSEMBLED</span>
+      </div>
+      <h2 class="scene-readout__title" id="sceneTitle">合拢<span>·</span>松夜</h2>
+      <p class="scene-readout__copy" id="sceneCopy">一万六千枚松针粒子收束成树，<br />金色饰物在呼吸之间微微发亮。</p>
+      <div class="scene-readout__metrics">
+        <div><span class="metric-label">PARTICLES</span><span class="metric-value" id="particleCount">16,480</span></div>
+        <div><span class="metric-label">FORM</span><span class="metric-value" id="formValue">CONE / 01</span></div>
+      </div>
+      <div class="scene-readout__hint" id="sceneHint">
+        <span class="hint-key">SPACE</span><span>或 张开手掌，让星尘散开</span>
+      </div>
+    </section>
+
+    <aside class="gesture-card" id="gestureCard" aria-label="手势控制面板">
+      <div class="gesture-card__head">
+        <div class="panel-title">
+          <span class="panel-title__index">01</span>
+          <span>GESTURE OPTICS</span>
+        </div>
+        <div class="engine-state is-standby" id="engineState">
+          <span class="engine-state__dot"></span><span id="engineStateText">STANDBY</span>
+        </div>
+      </div>
+
+      <div class="camera-frame" id="cameraFrame">
+        <video id="camera" playsinline muted autoplay></video>
+        <canvas id="cameraOverlay" width="640" height="480"></canvas>
+        <div class="camera-scanline" aria-hidden="true"></div>
+        <div class="camera-corners" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+        <div class="camera-standby" id="cameraStandby">
+          <div class="camera-standby__glyph">
+            <svg><use href="#i-hand-open"></use></svg>
+            <span class="camera-standby__ring"></span>
+          </div>
+          <p>让手成为你的指挥棒</p>
+          <button class="ghost-button" id="enableGestureBtn" type="button">
+            <svg><use href="#i-camera"></use></svg>
+            <span id="enableGestureText">启用手势</span>
+          </button>
+        </div>
+        <div class="camera-unavailable" id="cameraUnavailable" hidden>
+          <svg><use href="#i-camera"></use></svg>
+          <p id="cameraUnavailableText">未检测到摄像头</p>
+          <button class="text-button" id="retryGestureBtn" type="button">重试</button>
+        </div>
+        <div class="camera-hud" id="cameraHud" hidden>
+          <span class="camera-hud__status"><i></i><span id="cameraHudText">TRACKING</span></span>
+          <span class="camera-hud__coord" id="cameraHudCoord">X 0.50 · Y 0.50</span>
+        </div>
+        <div class="gesture-meter" aria-hidden="true"><span id="gestureMeterFill"></span></div>
+      </div>
+
+      <p class="gesture-card__mobilehint">张开散开 · 握拳合拢 · 移手环绕</p>
+
+      <div class="gesture-list">
+        <div class="gesture-row" data-gesture="open">
+          <span class="gesture-row__icon"><svg><use href="#i-hand-open"></use></svg></span>
+          <span class="gesture-row__text"><b>张开五指</b><small>散开 · SCATTER</small></span>
+          <span class="gesture-row__key">HOLD</span>
+        </div>
+        <div class="gesture-row" data-gesture="fist">
+          <span class="gesture-row__icon"><svg><use href="#i-hand-fist"></use></svg></span>
+          <span class="gesture-row__text"><b>握紧拳头</b><small>合拢 · GATHER</small></span>
+          <span class="gesture-row__key">HOLD</span>
+        </div>
+        <div class="gesture-row" data-gesture="move">
+          <span class="gesture-row__icon"><svg><use href="#i-hand-move"></use></svg></span>
+          <span class="gesture-row__text"><b>平移手掌</b><small>环绕视角 · ORBIT</small></span>
+          <span class="gesture-row__key">散开态</span>
+        </div>
+      </div>
+
+      <div class="gesture-card__foot">
+        <svg><use href="#i-lock"></use></svg>
+        <span>画面仅在本地设备处理，不会上传</span>
+        <span class="gesture-card__gesture" id="gestureLabel">NO HAND</span>
+      </div>
+    </aside>
+
+    <div class="orbit-hud" id="orbitHud" aria-hidden="true">
+      <div class="orbit-hud__ring">
+        <span class="orbit-hud__north">N</span>
+        <span class="orbit-hud__needle" id="orbitNeedle"></span>
+        <span class="orbit-hud__center"></span>
+      </div>
+      <div class="orbit-hud__data">
+        <span>AZIMUTH <b id="azimuthValue">000°</b></span>
+        <span>ALTITUDE <b id="altitudeValue">+07°</b></span>
+      </div>
+    </div>
+
+    <div class="toast" id="toast" role="status"></div>
+
+    <footer class="control-deck" aria-label="图形化控制台">
+      <div class="control-deck__inner">
+        <div class="mode-control">
+          <span class="control-label">FORM</span>
+          <div class="mode-switch" id="modeSwitch" data-mode="collapsed">
+            <span class="mode-switch__pill" aria-hidden="true"></span>
+            <button type="button" class="mode-switch__btn is-active" data-mode="collapsed" aria-pressed="true">
+              <svg><use href="#i-tree"></use></svg><span>合拢</span>
+            </button>
+            <button type="button" class="mode-switch__btn" data-mode="scattered" aria-pressed="false">
+              <svg><use href="#i-sparkles"></use></svg><span>散开</span>
+            </button>
+          </div>
+        </div>
+
+        <span class="deck-divider" aria-hidden="true"></span>
+
+        <div class="camera-control">
+          <span class="control-label">CAMERA</span>
+          <div class="cam-pad">
+            <button type="button" class="cam-pad__btn cam-pad__up" data-orbit="up" aria-label="视角上移"><svg><use href="#i-chevron"></use></svg></button>
+            <button type="button" class="cam-pad__btn cam-pad__left" data-orbit="left" aria-label="视角左转"><svg><use href="#i-chevron"></use></svg></button>
+            <button type="button" class="cam-pad__center" id="resetViewBtn" aria-label="重置视角" title="重置视角"><svg><use href="#i-reset"></use></svg></button>
+            <button type="button" class="cam-pad__btn cam-pad__right" data-orbit="right" aria-label="视角右转"><svg><use href="#i-chevron"></use></svg></button>
+            <button type="button" class="cam-pad__btn cam-pad__down" data-orbit="down" aria-label="视角下移"><svg><use href="#i-chevron"></use></svg></button>
+          </div>
+        </div>
+
+        <span class="deck-divider" aria-hidden="true"></span>
+
+        <div class="utility-control">
+          <span class="control-label">STAGE</span>
+          <div class="utility-row">
+            <button type="button" class="tool-button is-on" id="autoRotateBtn" aria-label="自动环绕" aria-pressed="true" title="自动环绕">
+              <svg><use href="#i-orbit"></use></svg><span>环绕</span>
+            </button>
+            <button type="button" class="tool-button" id="photoBtn" aria-label="上传照片" title="上传照片">
+              <svg><use href="#i-photo"></use></svg><span>照片</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="deck-state">
+          <span class="deck-state__dot" id="deckDot"></span>
+          <span class="deck-state__text" id="deckState">TREE · STABLE</span>
+          <span class="deck-state__pct" id="formPercent">100%</span>
+        </div>
+      </div>
+      <div class="control-deck__legend">
+        <span><kbd>SPACE</kbd> 合拢 / 散开</span>
+        <span><kbd>↑ ↓ ← →</kbd> 环绕视角</span>
+        <span><kbd>拖拽</kbd> 自由旋转</span>
+        <span><kbd>滚轮</kbd> 缩放</span>
+      </div>
+    </footer>
+
+    <div class="loading-veil" id="loadingVeil">
+      <div class="loading-veil__glow"></div>
+      <div class="loading-veil__content">
+        <svg class="loading-star"><use href="#i-star"></use></svg>
+        <p class="loading-veil__eyebrow">ATELIER OF LIGHT PRESENTS</p>
+        <h1>AURORA <i>NOËL</i></h1>
+        <p class="loading-veil__cn">正在编织一场松绿色的星尘</p>
+        <div class="loading-veil__bar"><span id="loadingProgress"></span></div>
+        <p class="loading-veil__status" id="loadingStatus">PREPARING THE SCENE</p>
+      </div>
+    </div>
+
+    <input type="file" id="photoUpload" accept="image/*" multiple hidden />
+  </div>
+
+</body>
+</html>
