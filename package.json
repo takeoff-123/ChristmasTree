@@ -1,0 +1,21 @@
+{
+  "name": "aurora-noel",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Aurora Noël — a gesture-controlled 3D particle Christmas tree",
+  "scripts": {
+    "dev": "vite --host 127.0.0.1 --port 4173",
+    "start": "vite --host 127.0.0.1 --port 4173",
+    "build": "vite build",
+    "preview": "vite preview --host 127.0.0.1 --port 4173",
+    "test": "node scripts/test-classifier.mjs"
+  },
+  "dependencies": {
+    "@mediapipe/tasks-vision": "^1.2.3",
+    "three": "^0.187.0"
+  },
+  "devDependencies": {
+    "vite": "^8.3.8"
+  }
+}
